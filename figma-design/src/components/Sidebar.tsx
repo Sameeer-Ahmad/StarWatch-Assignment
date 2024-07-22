@@ -45,7 +45,9 @@ import { SlCalender } from "react-icons/sl";
 import { FaFileInvoice } from "react-icons/fa6";
 import { RiTodoFill } from "react-icons/ri";
 import { ScrollArea } from "@/ui/scroll-area";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Dashboard from "./Dashboard";
+import AllRoutes from "../routes/AllRoutes";
 
 interface LinkItemProps {
   name: string;
@@ -68,7 +70,7 @@ interface SidebarProps extends BoxProps {
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Dashboard", icon: BiSolidDashboard, href: "/dashboard" },
+  { name: "Dashboard", icon: BiSolidDashboard, href: "/" },
   { name: "products", icon: BsBoxFill, href: "/products" },
   { name: "Heart", icon: FaHeart, href: "/heart" },
   { name: "Messages", icon: AiFillMessage, href: "/messages" },
@@ -118,28 +120,31 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   );
 };
 
-const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, href, ...rest }) => {
+  const location = useLocation();
+  const isActive = location.pathname === href;
+
   return (
     <Link to={href} style={{ textDecoration: "none" }} {...rest}>
       <Flex
         align="center"
+        
         p="4"
         mx="4"
         borderRadius="lg"
         role="group"
         cursor="pointer"
-        _hover={{
-          bg: "cyan.400",
-          color: "white",
-        }}
+        // color={isActive ? "blue.400" : undefined}
+        // _hover={{
+        //   bg: "blue.400",
+        //   color: "white",
+        //   width:"60px"
+        // }}
       >
         {icon && (
           <Icon
             mr="4"
             fontSize="24"
-            _groupHover={{
-              color: "white",
-            }}
             as={icon}
           />
         )}
@@ -148,6 +153,7 @@ const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
     </Link>
   );
 };
+
 
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
@@ -273,7 +279,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   );
 };
 
-export default function Sidebar({ children }) {
+export default function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -281,6 +287,7 @@ export default function Sidebar({ children }) {
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
+
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
@@ -295,8 +302,9 @@ export default function Sidebar({ children }) {
         </DrawerContent>
       </Drawer>
       <MobileNav onOpen={onOpen} />
+
       <Box ml={{ base: 0, md: 28 }} p="4">
-        {children}
+        <AllRoutes />
       </Box>
     </Box>
   );
