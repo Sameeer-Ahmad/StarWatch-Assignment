@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import ProductCrousel from "./ProductCrousel";
-import { Carousels } from "./Crousel";
+
 import { SmallProductCrousel } from "./SmallProductCrousel";
 
 function Product() {

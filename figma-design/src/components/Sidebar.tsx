@@ -46,8 +46,8 @@ import { FaFileInvoice } from "react-icons/fa6";
 import { RiTodoFill } from "react-icons/ri";
 import { ScrollArea } from "@/ui/scroll-area";
 import { Link, useLocation } from "react-router-dom";
-import Dashboard from "./Dashboard";
 import AllRoutes from "../routes/AllRoutes";
+import { FC } from "react";
 
 interface LinkItemProps {
   name: string;
@@ -55,11 +55,7 @@ interface LinkItemProps {
   href: string;
 }
 
-interface NavItemProps extends FlexProps {
-  icon: IconType;
-  children: React.ReactNode;
-  href: string;
-}
+
 
 interface MobileProps extends FlexProps {
   onOpen: () => void;
@@ -68,6 +64,12 @@ interface MobileProps extends FlexProps {
 interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
+type NavItemProps = {
+  icon?: React.ElementType; // Optional prop
+  children?: React.ReactNode;
+  href: string;
+  [x: string]: any; // For ...rest props
+};
 
 const LinkItems: Array<LinkItemProps> = [
   { name: "Dashboard", icon: BiSolidDashboard, href: "/" },
@@ -120,7 +122,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   );
 };
 
-const NavItem = ({ icon, children, href, ...rest }) => {
+const NavItem: FC<NavItemProps> = ({ icon, children, href, ...rest }) => {
   const location = useLocation();
   const isActive = location.pathname === href;
 
@@ -134,7 +136,7 @@ const NavItem = ({ icon, children, href, ...rest }) => {
         borderRadius="lg"
         role="group"
         cursor="pointer"
-        // color={isActive ? "blue.400" : undefined}
+        m={isActive ? "0px" : undefined}
         // _hover={{
         //   bg: "blue.400",
         //   color: "white",

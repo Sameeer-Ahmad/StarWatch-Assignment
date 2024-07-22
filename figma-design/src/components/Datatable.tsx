@@ -1,23 +1,15 @@
-import { MoreHorizontal } from "lucide-react";
+
 
 import { Badge } from "@/ui/badge";
 
-import { Button } from "@/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
+  
   CardHeader,
   CardTitle,
 } from "@/ui/Cards";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/ui/dropdown-menu";
+
 
 import {
   Table,
@@ -28,8 +20,6 @@ import {
   TableRow,
 } from "@/ui/table";
 import { Tabs, TabsContent } from "@/ui/tabs";
-
-import { Image } from "@chakra-ui/react";
 
 export function DataTable() {
   return (

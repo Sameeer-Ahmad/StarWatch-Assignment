@@ -14,10 +14,10 @@ import {
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 // And react-slick as our Carousel Lib
-import Slider from 'react-slick'
-
+import Slider from 'react-slick';
+import type { Settings } from 'react-slick'
 // Settings for the slider
-const settings = {
+const settings:Settings = {
   dots: true,
   arrows: false,
   fade: true,
@@ -32,7 +32,7 @@ const settings = {
 export default function ProductCrousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
-  const [slider, setSlider] = React.useState<Slider | null>(null)
+  const [slider, setSlider] = React.useState<Slider|null>(null)
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
