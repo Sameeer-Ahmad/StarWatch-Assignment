@@ -136,7 +136,7 @@ const NavItem: FC<NavItemProps> = ({ icon, children, href, ...rest }) => {
         borderRadius="lg"
         role="group"
         cursor="pointer"
-        m={isActive ? "0px" : undefined}
+        color={isActive ? "black" : undefined}
         // _hover={{
         //   bg: "blue.400",
         //   color: "white",
