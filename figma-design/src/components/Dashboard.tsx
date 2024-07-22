@@ -169,7 +169,6 @@ function Dashboard() {
       <Graph />
       <DataTable />
       <Revenue />
-
       <Flex gap={6} pt={12} pl={4}>
         <Piechart />
         <Flex
