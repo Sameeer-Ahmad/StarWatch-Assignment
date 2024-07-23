@@ -13,7 +13,8 @@ function Inbox() {
       <Text pl={6} align="start" fontSize="3xl" fontWeight="bold">
         Inbox
       </Text>
-    <Flex gap={6}>
+    <Flex gap={6} flexWrap={["wrap","wrap","nowrap"]} align={["center","center","start"]}
+        justify={["center","center","start"]}>
 
       <Flex
         width={"25%"}

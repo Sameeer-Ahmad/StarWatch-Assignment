@@ -147,6 +147,28 @@ export const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => <div>{row.getValue("name")}</div>,
   },
   {
+    accessorKey: "status",
+    header: "",
+    cell: ({ row }) => {
+    //   const status = row.getValue("status");
+      return (
+        <button
+        //   style={
+        //     status
+        //       ? {
+        //           backgroundColor: "#f3f4f6",
+        //           padding: "5px 10px ",
+        //           borderRadius: "5px",
+        //         }
+        //       : {}
+        //   }
+        >
+          {row.getValue("status")}
+        </button>
+      );
+    },
+  },
+  {
     accessorKey: "description",
     header: "",
     cell: ({ row }) => <div>{row.getValue("description")}</div>,
