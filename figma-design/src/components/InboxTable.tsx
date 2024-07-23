@@ -8,7 +8,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { FaArrowLeft, FaArrowRight, FaRegImage } from "react-icons/fa";
-import { Button } from "@/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/ui/input";
 import { Table, TableBody, TableCell, TableRow } from "@/ui/table";
