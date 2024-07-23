@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
-} from "@tanstack/react-table"
-import { FaArrowLeft, FaArrowRight, FaRegImage } from "react-icons/fa"
-import { Button } from "@/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Input } from "@/ui/input"
-import { Table, TableBody, TableCell, TableRow } from "@/ui/table"
-import { Box, Flex } from "@chakra-ui/react"
-import { MdDelete, MdError } from "react-icons/md"
-import { CiStar } from "react-icons/ci"
+} from "@tanstack/react-table";
+import { FaArrowLeft, FaArrowRight, FaRegImage } from "react-icons/fa";
+import { Button } from "@/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/ui/input";
+import { Table, TableBody, TableCell, TableRow } from "@/ui/table";
+import { Box, Flex } from "@chakra-ui/react";
+import { MdDelete, MdError } from "react-icons/md";
+import { CiStar } from "react-icons/ci";
 
 const data: Payment[] = [
   {
     id: "1",
     name: "Jullu Jalal",
     description: "Our Bachelor of Commerce program is ACBSP-accredited.",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "8:38 AM",
     status: "Primary",
   },
@@ -29,7 +29,7 @@ const data: Payment[] = [
     id: "2",
     name: "Minerva Barnett",
     description: "Get Best Advertiser In Your Side Pocket",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "8:13 AM",
     status: "Work",
   },
@@ -37,7 +37,7 @@ const data: Payment[] = [
     id: "3",
     name: "Peter Lewis",
     description: "Vacation Home Rental Success",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "7:52 PM",
     status: "Friends",
   },
@@ -45,7 +45,7 @@ const data: Payment[] = [
     id: "4",
     name: "Anthony Briggs",
     description: "Free Classifieds Using Them To Promote Your Stuff Online",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "7:52 PM",
     status: "",
   },
@@ -53,7 +53,7 @@ const data: Payment[] = [
     id: "5",
     name: "Clifford Morgan",
     description: "Enhance Your Brand Potential With Giant Advertising Blimps",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "4:13 PM",
     status: "Social",
   },
@@ -61,7 +61,7 @@ const data: Payment[] = [
     id: "6",
     name: "Cecilia Webster",
     description: "Always Look On The Bright Side Of Life",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "3:52 PM",
     status: "Friends",
   },
@@ -69,7 +69,7 @@ const data: Payment[] = [
     id: "7",
     name: "Harvey Manning",
     description: "Curling Irons Are As Individual As The Women Who Use Them",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "2:30 PM",
     status: "",
   },
@@ -77,7 +77,7 @@ const data: Payment[] = [
     id: "8",
     name: "Willie Blake",
     description: "Our Bachelor of Commerce program is ACBSP-accredited.",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "8:38 AM",
     status: "Primary",
   },
@@ -86,14 +86,14 @@ const data: Payment[] = [
     name: "Minerva Barnett",
     description: "Get Best Advertiser In Your Side Pocket",
     date: "8:13 AM",
-    icon:<CiStar />,
+    icon: <CiStar />,
     status: "Work",
   },
   {
     id: "10",
     name: "Fanny Weaver",
     description: "Free Classifieds Using Them To Promote Your Stuff Online",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "7:52 PM",
     status: "",
   },
@@ -101,7 +101,7 @@ const data: Payment[] = [
     id: "11",
     name: "Olga Hogan",
     description: "Enhance Your Brand Potential With Giant Advertising Blimps",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "4:13 PM",
     status: "Social",
   },
@@ -109,20 +109,20 @@ const data: Payment[] = [
     id: "12",
     name: "Lora Houston",
     description: "Vacation Home Rental Success",
-    icon:<CiStar />,
+    icon: <CiStar />,
     date: "7:52 PM",
     status: "Friends",
   },
-]
+];
 
 export type Payment = {
-  id: string
-  name: string
-  description: string
-  icon: React.ReactNode
-  date: string
-  status: "Primary" | "Work" | "Friends" | "Social"|""
-}
+  id: string;
+  name: string;
+  description: string;
+  icon: React.ReactNode;
+  date: string;
+  status: "Primary" | "Work" | "Friends" | "Social" | "";
+};
 
 export const columns: ColumnDef<Payment>[] = [
   {
@@ -138,7 +138,7 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
   },
   {
-   accessorKey:"icon",
+    accessorKey: "icon",
     cell: ({ row }) => <Box fontSize={"xl"}>{row.getValue("icon")}</Box>,
   },
   {
@@ -150,7 +150,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "status",
     header: "",
     cell: ({ row }) => {
-    //   const status = row.getValue("status");
+      //   const status = row.getValue("status");
       return (
         <button
         //   style={
@@ -177,14 +177,14 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "date",
     header: "",
     cell: ({ row }) => {
-      const date = row.getValue<string>("date")
-      return <div className="text-right font-medium">{date}</div>
+      const date = row.getValue<string>("date");
+      return <div className="text-right font-medium">{date}</div>;
     },
   },
-]
+];
 
 export function InboxTable() {
-  const [rowSelection, setRowSelection] = React.useState({})
+  const [rowSelection, setRowSelection] = React.useState({});
 
   const table = useReactTable({
     data,
@@ -194,7 +194,7 @@ export function InboxTable() {
     state: {
       rowSelection,
     },
-  })
+  });
 
   return (
     <div style={{ borderRadius: "10px" }} className="w-full bg-white">
@@ -204,7 +204,15 @@ export function InboxTable() {
           className="max-w-sm ml-8"
           style={{ backgroundColor: "#f3f4f6" }}
         />
-        <Flex mr={8} fontSize={"20px"} p={2} gap={4} border={"0.5px solid "} bg={"gray.100"} borderRadius={"10px"}>
+        <Flex
+          mr={8}
+          fontSize={"20px"}
+          p={2}
+          gap={4}
+          border={"0.5px solid "}
+          bg={"gray.100"}
+          borderRadius={"10px"}
+        >
           <FaRegImage />
           <MdError />
           <MdDelete />
@@ -215,15 +223,26 @@ export function InboxTable() {
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
                   No results.
                 </TableCell>
               </TableRow>
@@ -235,15 +254,12 @@ export function InboxTable() {
         <div className="flex-1 text-sm pl-8 text-muted-foreground">
           Showing 1-12 of 12
         </div>
-        <div className="space-x-2 pr-8">
-          <Button variant="outline" size="sm">
-            <FaArrowLeft />
-          </Button>
-          <Button variant="outline" size="sm">
-            <FaArrowRight />
-          </Button>
+        <div className="space-x-2 pr-8 flex align-center gap-4">
+          <FaArrowLeft />
+
+          <FaArrowRight />
         </div>
       </div>
     </div>
-  )
+  );
 }
